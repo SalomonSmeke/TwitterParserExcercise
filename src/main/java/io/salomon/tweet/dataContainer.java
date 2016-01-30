@@ -18,10 +18,10 @@ public class dataContainer{
 		
 	}
 	
-	private final class unmutableItem {
+	private final class immutableItem {
 		private final String item;
 		
-		private unmutableItem (String text){item = text;}
+		private immutableItem (String text){item = text;}
 		@Override
 		public String toString(){return item;}
 	}
