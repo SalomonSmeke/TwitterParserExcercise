@@ -1,4 +1,7 @@
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
+
 import static org.junit.Assert.*;
 import java.lang.reflect.Constructor;
 
@@ -12,6 +15,8 @@ public class TweetTest {
 		 * http://www.artima.com/suiterunner/private2.html
 		 */
 	    
+		System.out.println("A string put into an immutable item should come out the same");
+		
 		//First, make an instance of the external class
         stringIronBox publicClass = new stringIronBox();
         
@@ -29,5 +34,19 @@ public class TweetTest {
 
         //Test the object's contents = what we put in there.
 		assertEquals("testText!",immutableItem.toString());
+	}
+
+	
+	@Rule
+    public ExpectedException thrown = ExpectedException.none();
+	
+	@Test public void testStringIronBox(){
+		stringIronBox testable = new stringIronBox();
+		
+		assertTrue(testable.addString("String 1"));
+		assertTrue(testable.removeString("String 1"));
+		assertFalse(testable.removeString("Not contained string"));
+	    thrown.expect(IndexOutOfBoundsException.class);
+	    testable.getAt(0);
 	}
 }

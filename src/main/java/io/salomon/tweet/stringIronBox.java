@@ -34,7 +34,16 @@ public final class stringIronBox {
 		}
 		return true;
 	}
-
+	
+	public String getAt(int index){
+		if (index>list.size()-1) throw new IndexOutOfBoundsException("IronBox does not contain that many elements.");
+		return list.get(index).toString();
+	}
+	
+	public int size(){
+		return list.size();
+	}
+	
 	private class immutableItem {
 		private final String item;
 		private immutableItem (String text){item = text;}
