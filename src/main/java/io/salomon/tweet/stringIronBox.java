@@ -35,6 +35,14 @@ public final class stringIronBox {
 		return true;
 	}
 	
+	public boolean contains(String text){
+		if(list.contains(new immutableItem(text))){
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 	public String getAt(int index){
 		if (index>list.size()-1) throw new IndexOutOfBoundsException("IronBox does not contain that many elements.");
 		return list.get(index).toString();
@@ -56,4 +64,5 @@ public final class stringIronBox {
 		}
 	}
 
+	
 }
