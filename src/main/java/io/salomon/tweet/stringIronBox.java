@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 import org.omg.CORBA.portable.UnknownException;
 
-public final class stringIronBox {
+public final class StringIronBox {
 
 	private ArrayList<immutableItem> list;
 	
 	//TODO make it so you can initialize iron-box with a string or collection of strings.
-	public stringIronBox(){
+	public StringIronBox(){
 		list = new ArrayList<immutableItem>();
 	}
 	

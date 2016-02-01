@@ -22,13 +22,13 @@ public class TweetTest {
 		System.out.println("TEST: A string put into an immutable item should come out the same");
 		
 		//First, make an instance of the external class
-        stringIronBox publicClass = new stringIronBox();
+        StringIronBox publicClass = new StringIronBox();
 		System.out.println("	INSTANTIATED EXTERNAL CLASS OK");
         //Now grab the inner private class
         Class<?> privateClass = Class.forName("io.salomon.tweet.stringIronBox$immutableItem");
 		System.out.println("	INSTANTIATED INTERNAL CLASS OK");
         //Get the private constructor. Inside of stringIronBox. With a string argument.
-        Constructor<?> constructor = privateClass.getDeclaredConstructor(stringIronBox.class, String.class);
+        Constructor<?> constructor = privateClass.getDeclaredConstructor(StringIronBox.class, String.class);
 		System.out.println("	OBTAINED PRIVATE CONSTRUCTOR OK");
         //Make it accessible to us (cause its private)
         constructor.setAccessible(true);
@@ -44,7 +44,7 @@ public class TweetTest {
     
 	@Test public void testStringIronBoxAdd(){
 		System.out.println("TEST: A string put into the iron box should come out the same");
-		stringIronBox testable = new stringIronBox();
+		StringIronBox testable = new StringIronBox();
 		System.out.println("	INSTANTIATED OK");
 		assertTrue(testable.addString("String 1"));
 		System.out.println("	ADDED OK");
@@ -55,7 +55,7 @@ public class TweetTest {
 	
 	@Test public void testStringIronBoxContains(){
 		System.out.println("TEST: A string put into the iron box should be contained, others should not");
-		stringIronBox testable = new stringIronBox();
+		StringIronBox testable = new StringIronBox();
 		System.out.println("	INSTANTIATED OK");
 		assertTrue(testable.addString("String 1"));
 		System.out.println("	ADDED OK");
@@ -66,7 +66,7 @@ public class TweetTest {
 	
 	@Test public void testStringIronBoxRemovalKey(){
 		System.out.println("TEST: A string put into the iron box should be removable by Key");
-		stringIronBox testable = new stringIronBox();
+		StringIronBox testable = new StringIronBox();
 		System.out.println("	INSTANTIATED OK");
 		assertTrue(testable.addString("String 1"));
 		System.out.println("	ADDED OK");
@@ -83,7 +83,7 @@ public class TweetTest {
 	
 	@Test public void testStringIronBoxIndex(){
 		System.out.println("TEST: An iron box should be the size of what it contains");
-		stringIronBox testable = new stringIronBox();
+		StringIronBox testable = new StringIronBox();
 		System.out.println("	INSTANTIATED OK");
 		assertTrue(testable.addString("String 1"));
 		System.out.println("	ADDED OK");
@@ -102,7 +102,7 @@ public class TweetTest {
 	
 	@Test public void testStringIronBoxOutOfBounds(){
 		System.out.println("TEST: An iron box should have bounds equal to size \nWARN. EXCEPTION EXPECTED. TEST WILL END WITHOUT MARK");
-		stringIronBox testable = new stringIronBox();
+		StringIronBox testable = new StringIronBox();
 		System.out.println("	INSTANTIATED OK");
 		assertTrue(testable.addString("String 1"));
 		System.out.println("	ADDED OK");
