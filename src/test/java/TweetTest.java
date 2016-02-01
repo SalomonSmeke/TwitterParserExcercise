@@ -25,7 +25,7 @@ public class TweetTest {
         StringIronBox publicClass = new StringIronBox();
 		System.out.println("	INSTANTIATED EXTERNAL CLASS OK");
         //Now grab the inner private class
-        Class<?> privateClass = Class.forName("io.salomon.tweet.stringIronBox$immutableItem");
+        Class<?> privateClass = Class.forName("io.salomon.tweet.StringIronBox$immutableItem");
 		System.out.println("	INSTANTIATED INTERNAL CLASS OK");
         //Get the private constructor. Inside of stringIronBox. With a string argument.
         Constructor<?> constructor = privateClass.getDeclaredConstructor(StringIronBox.class, String.class);

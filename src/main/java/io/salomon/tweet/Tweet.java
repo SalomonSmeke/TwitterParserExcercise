@@ -3,15 +3,16 @@ package io.salomon.tweet;
 //TODO Create tweet
 public class Tweet {
 	
-	private String[] splitContents;
-	
 	public Tweet(String init) {
-		if (!parse(init)){
-			System.out.println("Error parsing tweet");
-		}
+		parseIn(init);
 	}
 	
-	private boolean parse(String in){
+	private boolean parseIn(String in){
+		if (in.length()==0){
+			System.out.println("Cannot parse empty tweets");
+			return false;
+		}
+		DataHandler handler = new DataHandler(in);
 		return true;
 	}
 	

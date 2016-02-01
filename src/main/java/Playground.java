@@ -4,7 +4,8 @@ import io.salomon.tweet.Tweet;
  * This file is NOT a testing structure
  */
 public class Playground {
-    public void main(String []args){
+    public static void main(String []args){
+    	Tweet testTweet = new Tweet("@slmnsmk hello,World! http://a.com www.a.com a.com #george");
     	
     }
 }
