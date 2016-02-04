@@ -10,15 +10,25 @@ public class DataHandler extends Types{
 	private String[] types = Types.getTypes();
 	
 	public DataHandler(String parse){
+		if (parse!=null){
 		createStructs();
 		categorize(parse);
+		}
+		else {
+			System.out.println("WARN. Nothing parsed. Use DataHandler.reparse()");
+		}
 	}
 	
 	public void reparse(String parse){
 		containers = new HashMap<String,StringIronBox>();
 		counters = new HashMap<String,Integer>();
+		if (parse!=null){
 		createStructs();
 		categorize(parse);
+		}
+		else {
+			System.out.println("WARN. Nothing parsed. Use DataHandler.reparse()");
+		}
 	}
 	
 	private void createStructs(){

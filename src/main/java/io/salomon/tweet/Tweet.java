@@ -2,9 +2,13 @@ package io.salomon.tweet;
 
 //TODO Create tweet
 public class Tweet {
-	
+	DataHandler handler;
 	public Tweet(String init) {
-		parseIn(init);
+		if (init != null){
+			parseIn(init);
+		} else{
+			System.out.println("WARN, did not parse null value");
+		}
 	}
 	
 	private boolean parseIn(String in){
@@ -12,9 +16,10 @@ public class Tweet {
 			System.out.println("Cannot parse empty tweets");
 			return false;
 		}
-		DataHandler handler = new DataHandler(in);
+		handler = new DataHandler(in);
 		return true;
 	}
+	
 	
 	
 }
