@@ -1,9 +1,7 @@
 package io.salomon.tweet;
 
-
-
 public class Types {
-	private final static String[][] types = new String[][]{
+	private final static String[][] typesRules = new String[][]{
 		{"@","mentions"},
 		{"#","tags"},
 		{"http://www.","link"},
@@ -11,11 +9,22 @@ public class Types {
 		{"http://","link"},
 		{"https://","link"},
 		{"www.","link"},
+		
+		//Add more here!
+		
 		{"","words"}
 		};
 	
-	public static String[][] getTypes(){
+	private final static String[] types = new String[]{
+			"mentions","tags","link","words"
+	};
+	
+	public static String[] getTypes(){
 		return types;
+	}
+
+	public static String[][] getTypesRules(){
+		return typesRules;
 	}
 	
 }

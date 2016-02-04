@@ -114,5 +114,24 @@ public class TweetTest {
 	}
 	//END String Iron Box test chunk
 	
+	//BEGIN Types test Chunk
+	@Test public void testTypesRules(){
+		System.out.println("TEST: TypesRules should retrieve a String [][]");
+		String[][] x = new String[][]{};
+		System.out.println("	INSTANTIATED OK");
+		assertEquals(Types.getTypesRules().getClass(),x.getClass());
+		System.out.println("TEST: \u2713");
+	}
+	
+	@Test public void testTypes(){
+		System.out.println("TEST: Types should retrieve a String []");
+		String[] x = new String[]{};
+		System.out.println("	INSTANTIATED OK");
+		assertEquals(Types.getTypes().getClass(),x.getClass());
+		System.out.println("TEST: \u2713");
+	}
+	//END Types test Chunk
+	
+	
 	
 }

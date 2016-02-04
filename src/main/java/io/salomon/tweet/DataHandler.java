@@ -6,38 +6,59 @@ public class DataHandler extends Types{
 	
 	private HashMap<String,StringIronBox> containers = new HashMap<String,StringIronBox>();
 	private HashMap<String,Integer> counters = new HashMap<String,Integer>();
-	private String[][] types = Types.getTypes();
+	private String[][] typesRules = Types.getTypesRules();
+	private String[] types = Types.getTypes();
 	
 	public DataHandler(String parse){
 		createStructs();
 		categorize(parse);
 	}
 	
+	public void reparse(String parse){
+		containers = new HashMap<String,StringIronBox>();
+		counters = new HashMap<String,Integer>();
+		createStructs();
+		categorize(parse);
+	}
+	
 	private void createStructs(){
-		for (int i = 0; i < types.length; i++){
-			String performanceTemp = types[i][1];
+		for (int i = 0; i < typesRules.length; i++){
+			String performanceTemp = typesRules[i][1];
 			counters.put(performanceTemp, 0);
 			containers.put(performanceTemp, new StringIronBox());
 		}
 	}
 	
-	private void categorize(String parse){
+	private int categorize(String parse){
+		int tokenAmount = 0;
 		String[] tokens = parse.split(" ");
 		for (int i = 0; i < tokens.length; i++){
 			String token = tokens[i];
-			for (int t = 0; t < types.length; t++){
-				String[] performanceTemp = types[t];
+			for (int t = 0; t < typesRules.length; t++){
+				String[] performanceTemp = typesRules[t];
 				if (token.startsWith(performanceTemp[0])){
 					token = token.replace(performanceTemp[0], "");
 					containers.get(performanceTemp[1]).addString(token);
 					counters.replace(performanceTemp[1], counters.get(performanceTemp[1])+1);
+					tokenAmount++;
 					break;
 				}
 			}
 		}
+		return tokenAmount;
 	}
 
+	public HashMap<String,StringIronBox> gContainers(){
+		return containers;
+	}
+	
+	public HashMap<String,Integer> gCounters(){
+		return counters;
+	}
 
+	public String[] gTypes(){
+		return types;
+	}
 }
 
 

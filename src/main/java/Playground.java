@@ -5,7 +5,7 @@ import io.salomon.tweet.Tweet;
  */
 public class Playground {
     public static void main(String []args){
-    	Tweet testTweet = new Tweet("@slmnsmk hello,World! http://a.com www.a.com a.com #george");
+    	Tweet testTweet = new Tweet("@mmcvann1 Hey pretty! #Iloveyou www.iloveyou.com &group! djkhfalks");
     	
     }
 }
