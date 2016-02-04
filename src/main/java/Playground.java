@@ -7,7 +7,6 @@ public class Playground {
     public static void main(String []args){
     	Tweet testTweet = new Tweet("@mentionsample #tagsample http://linksample.com samplewords sample p ");
     	System.out.println(testTweet);
-    	
     	testTweet.print();
     }
 }

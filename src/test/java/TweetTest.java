@@ -163,4 +163,17 @@ public class TweetTest {
 	}
 	//END DataHandler test Chunk
 	
+	//BEGIN Tweet test Chunk
+	@Test public void testTweetInit(){
+		System.out.println("TEST: Tweet should initialize without crashing");
+		Tweet x = new Tweet(null);
+		System.out.println("	INSTANTIATED null OK");
+		Tweet y = new Tweet("a");
+		System.out.println("	INSTANTIATED regular OK");
+		System.out.println("TEST: \u2713");
+	}
+	
+	//TODO: add more tests
+	
+	//END Tweet test Chunk
 }
