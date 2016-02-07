@@ -3,7 +3,7 @@ package io.salomon.tweet;
 public class Rules {
 	//Type, start of rule applicability, end of rule applicability, required/notallowed, post-violarion handling.
 	//String, char, char, boolean, int {make it all text, treat the second part separately}, String[] triggers.
-	Rule[] userRulesSetup = new Rule[]{
+	private Rule[] userRulesSetup = new Rule[]{
 		new Rule("mentions", null, null, false, "split", new String[]{
 				
 				"º","\\","ª","!","|","\"","·","#","$","//","¬","(",")","?","'","´","‚",
@@ -28,10 +28,14 @@ public class Rules {
 				
 				"http://","https://","HTTP://","HTTPS://","#"
 				
-		}),
-		
-		new Rule("mentions", null, null, false, "split", new String[]{})
+		})
 	};
 	
-	//Didnt have time
+	public Rules (){
+		
+	}
+	
+	public Rule[] getRules(){
+		return userRulesSetup;
+	}
 }

@@ -39,6 +39,10 @@ public class Rule {
 		return "";
 	}
 	
+	public String getType(){
+		return type;
+	}
+	
 	public String[] process(String in){
 		if (required){
 			return processRequired(in);
@@ -47,7 +51,21 @@ public class Rule {
 	}
 	
 	private String[] processRequired(String in){
-		return null;
+		String save = in;
+		in = removeUnapplicableStart(in);
+		in = removeUnapplicableStart(in);
+		boolean flag = false;
+		for (int i = 0; i < tokens.length; i++){
+			if (in.contains(tokens[i])){
+				flag = true;
+				break;
+			}
+		}
+		if (flag){
+			return new String[]{save};
+		} else {
+			return new String[]{null,save};
+		}
 	}
 	
 	private String[] processNotAllowed(String in){

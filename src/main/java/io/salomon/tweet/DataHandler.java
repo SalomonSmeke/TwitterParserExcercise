@@ -6,13 +6,14 @@ public class DataHandler extends Types{
 	
 	private HashMap<String,StringIronBox> containers = new HashMap<String,StringIronBox>();
 	private HashMap<String,Integer> counters = new HashMap<String,Integer>();
-	private String[][] typesRules = Types.getTypesRules();
+	private String[][] typesPrefixes = Types.getTypesPrefixes();
 	private String[] types = Types.getTypes();
+	private Rule[] rules = new Rules().getRules();
 	
 	public DataHandler(String parse){
 		if (parse!=null){
 		createStructs();
-		categorize(parse);
+		parser(parse);
 		}
 		else {
 			System.out.println("WARN. Nothing parsed. Use DataHandler.reparse()");
@@ -24,7 +25,7 @@ public class DataHandler extends Types{
 		counters = new HashMap<String,Integer>();
 		if (parse!=null){
 		createStructs();
-		categorize(parse);
+		parser(parse);
 		}
 		else {
 			System.out.println("WARN. Nothing parsed. Use DataHandler.reparse()");
@@ -32,30 +33,55 @@ public class DataHandler extends Types{
 	}
 	
 	private void createStructs(){
-		for (int i = 0; i < typesRules.length; i++){
-			String performanceTemp = typesRules[i][1];
+		for (int i = 0; i < typesPrefixes.length; i++){
+			String performanceTemp = typesPrefixes[i][1];
 			counters.put(performanceTemp, 0);
 			containers.put(performanceTemp, new StringIronBox());
 		}
 	}
 	
-	private int categorize(String parse){
-		int tokenAmount = 0;
-		String[] tokens = parse.split(" ");
-		for (int i = 0; i < tokens.length; i++){
-			String token = tokens[i];
-			for (int t = 0; t < typesRules.length; t++){
-				String[] performanceTemp = typesRules[t];
-				if (token.startsWith(performanceTemp[0])){
-					token = token.replace(performanceTemp[0], "");
-					containers.get(performanceTemp[1]).addString(token);
-					counters.replace(performanceTemp[1], counters.get(performanceTemp[1])+1);
-					tokenAmount++;
-					break;
-				}
+	private int parser(String parse){
+		int itemAmount = 0;
+		
+		String[] items = parse.split(" ");
+		
+		for (int i = 0; i < items.length; i++){
+			categorize(items[i]);
+		}
+		
+		return itemAmount;
+	}
+
+	private void categorize(String string) {
+		
+		String type = "";
+		
+		for (int i = 0; i < typesPrefixes.length; i++){
+			String[] performanceTemp = typesPrefixes[i];
+			if (string.startsWith(performanceTemp[0])){
+				type = performanceTemp[1];
+				string = string.substring(performanceTemp[0].length());
+				break;
 			}
 		}
-		return tokenAmount;
+		
+		String[] rulesResult = new String[]{string,null};
+		
+		for (int i = 0; i < rules.length; i++){
+			Rule performanceTemp = rules[i];
+			if (performanceTemp.getType()==type && performanceTemp.getApplicability(string)==type){
+				rulesResult = performanceTemp.process(string);
+				break;
+			}
+		}
+		
+		if (rulesResult[1]!=null){
+			System.out.println(rulesResult[1]);
+		}
+		if (rulesResult[0]!=null){
+			System.out.println(rulesResult[0]);
+
+		}
 	}
 
 	public HashMap<String,StringIronBox> gContainers(){

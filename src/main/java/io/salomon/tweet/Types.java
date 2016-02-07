@@ -1,7 +1,7 @@
 package io.salomon.tweet;
 
 public class Types {
-	private final static String[][] typesRules = new String[][]{
+	private final static String[][] typesPrefixes = new String[][]{
 		{"@","mentions"},
 		{"#","tags"},
 		{"http://www.","link"},
@@ -23,8 +23,8 @@ public class Types {
 		return types;
 	}
 
-	public static String[][] getTypesRules(){
-		return typesRules;
+	public static String[][] getTypesPrefixes(){
+		return typesPrefixes;
 	}
 	
 }
