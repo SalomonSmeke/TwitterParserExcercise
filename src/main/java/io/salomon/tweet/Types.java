@@ -11,14 +11,14 @@ public class Types {
 		{"http://","link"},
 		{"https://","link"},
 		{"www.","link"},
-		
+		{"&","grouping"},
 		//Add more here!
 		
 		{"","words"}
 		};
 	
 	private final static String[] types = new String[]{
-			"mentions","tags","link","words"
+			"mentions","tags","link","words","grouping"
 	};
 	
 	public static String[] getTypes(){

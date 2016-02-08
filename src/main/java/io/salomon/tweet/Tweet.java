@@ -9,6 +9,7 @@ public class Tweet {
 	
 	//Instantiation of a Tweet object. Takes in a string. Will not parse nulls.
 	public Tweet(String init) {
+		handler = new DataHandler(init);
 		if (init != null){
 			parseIn(init);
 		} else{

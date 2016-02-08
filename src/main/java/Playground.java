@@ -5,7 +5,7 @@ import io.salomon.tweet.Tweet;
  */
 public class Playground {
     public static void main(String []args){
-    	Tweet testTweet = new Tweet("@mentio#nsample #tagsample http://linksample.com samplewords sample p ");
+    	Tweet testTweet = new Tweet("@mentio#nsample #tagsample http://linksample.com samplewords sample @phttp:// ");
     	
     	System.out.println(testTweet);
     	
