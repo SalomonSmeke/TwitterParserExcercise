@@ -29,4 +29,10 @@ you know. i take that back. ?# is the thing. and if the url isnt mine (pretendpe
 
 ''' 		new Rule("links", null, "/", true, "text", new String[]{"pretendperson.io","pretendhomie."}), '''
 
-Get it?
+Oh man! Id love to add a new thing anything that starts with & should be a grouping!
+
+Cool. Done.
+
+{"&","grouping"}
+
+Come at it.
