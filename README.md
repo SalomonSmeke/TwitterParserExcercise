@@ -14,3 +14,25 @@ Want the offending portion of text to be tossed in separately and the other part
 ''' 		new Rule("links", "/", null, false, "split", new String[]{"l"}), '''
 
 That kinda thing
+
+ugh. but I want the rule to not be applicable after a #. I use l's in some angular stuff.
+
+Fine!
+
+''' 		new Rule("links", "/", "#", false, "split", new String[]{"l"}), '''
+
+you know. i take that back. ?# is the thing. and if the url isnt mine (pretendperson.io) or my associates (pretendhomie. something) i want it to just be text. Oh. and we dont want any X's or Z's in the url at all.
+
+''' 		new Rule("links", "/", "?#", false, "split", new String[]{"l"}), '''
+
+''' 		new Rule("links", null, null, false, "text", new String[]{"X","Z"}), '''
+
+''' 		new Rule("links", null, "/", true, "text", new String[]{"pretendperson.io","pretendhomie."}), '''
+
+Oh man! Id love to add a new thing anything that starts with & should be a grouping!
+
+Cool. Done.
+
+{"&","grouping"}
+
+Come at it.
