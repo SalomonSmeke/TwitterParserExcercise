@@ -1,6 +1,8 @@
 package io.salomon.tweet;
 
 public class Types {
+	
+	//Add more types here. make sure to add its prefix to "typesPrefixes" in format {prefix,name} and its name to "types"
 	private final static String[][] typesPrefixes = new String[][]{
 		{"@","mentions"},
 		{"#","tags"},

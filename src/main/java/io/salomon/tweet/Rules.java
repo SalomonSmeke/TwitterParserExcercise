@@ -1,8 +1,8 @@
 package io.salomon.tweet;
 
 public class Rules {
-	//Type, start of rule applicability, end of rule applicability, required/notallowed, post-violarion handling.
-	//String, char, char, boolean, int {make it all text, treat the second part separately}, String[] triggers.
+	//Type, start of rule applicability (null for always, "" for one character), end of rule applicability, required=true notallowed=false, post-violarion handling.
+	//String, char, char, boolean, split or text (split it in two or turn it into text), String[] triggers.
 	private Rule[] userRulesSetup = new Rule[]{
 		new Rule("mentions", null, null, false, "split", new String[]{
 				

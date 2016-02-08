@@ -10,6 +10,7 @@ public class DataHandler extends Types{
 	private String[] types = Types.getTypes();
 	private Rule[] rules = new Rules().getRules();
 	
+	//Initialize a datahandler takes a string.
 	public DataHandler(String parse){
 		if (parse!=null){
 		createStructs();
@@ -20,6 +21,7 @@ public class DataHandler extends Types{
 		}
 	}
 	
+	//Reinitialize if necessary
 	public void reparse(String parse){
 		containers = new HashMap<String,StringIronBox>();
 		counters = new HashMap<String,Integer>();
@@ -32,6 +34,7 @@ public class DataHandler extends Types{
 		}
 	}
 	
+	//Uses rules to create structures appropriate to contain tweet data types
 	private void createStructs(){
 		for (int i = 0; i < typesPrefixes.length; i++){
 			String performanceTemp = typesPrefixes[i][1];
@@ -40,7 +43,8 @@ public class DataHandler extends Types{
 		}
 	}
 	
-	private int parser(String parse){
+	//Place each item into its box.
+	private void parser(String parse){
 		int itemAmount = 0;
 		
 		String[] items = parse.split(" ");
@@ -48,39 +52,46 @@ public class DataHandler extends Types{
 		for (int i = 0; i < items.length; i++){
 			categorize(items[i]);
 		}
-		
-		return itemAmount;
 	}
 
+	//Place a single item into a box.
 	private void categorize(String string) {
 		
 		String type = "";
 		
+		//Iterate over the possible types
 		for (int i = 0; i < typesPrefixes.length; i++){
 			String[] performanceTemp = typesPrefixes[i];
+			//If found, assign to type.
 			if (string.startsWith(performanceTemp[0])){
 				type = performanceTemp[1];
 				string = string.substring(performanceTemp[0].length());
 				break;
 			}
 		}
-		
+		//In case no rules apply, process as is
 		String[] rulesResult = new String[]{string,null};
 		
+		//Iterate over rules.
 		for (int i = 0; i < rules.length; i++){
 			Rule performanceTemp = rules[i];
+			//If the rule applies, proccess it.
 			if (performanceTemp.getType()==type && performanceTemp.getApplicability(string)==type){
 				rulesResult = performanceTemp.process(string);
 				break;
 			}
 		}
 		
+		//Place into text container the parts of the item so specified by rules
 		if (rulesResult[1]!=null){
-			System.out.println(rulesResult[1]);
+			containers.get("words").addString(rulesResult[1]);
+			counters.put("words", counters.get("words")+1);
 		}
+		
+		//Place into type container the parts of the item so specified by rules
 		if (rulesResult[0]!=null){
-			System.out.println(rulesResult[0]);
-
+			containers.get(type).addString(rulesResult[0]);
+			counters.put(type, counters.get(type)+1);
 		}
 	}
 

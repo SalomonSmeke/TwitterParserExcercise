@@ -15,7 +15,7 @@ public class Rule {
 	private String behavior;
 	private String []tokens;
 	
-	
+	//Grab the user created rules and assign their attributes to variables
 	public Rule(String type, String start, String end, boolean required, String behavior, String []tokens){
 		this.type = type;
 		this.start=start;
@@ -39,10 +39,12 @@ public class Rule {
 		return "";
 	}
 	
+	//Get the type of a rule
 	public String getType(){
 		return type;
 	}
 	
+	//Process a string with a rule
 	public String[] process(String in){
 		if (required){
 			return processRequired(in);
@@ -50,6 +52,7 @@ public class Rule {
 		return processNotAllowed(in);
 	}
 	
+	//Process a string flagged as required
 	private String[] processRequired(String in){
 		String save = in;
 		in = removeUnapplicableStart(in);
@@ -68,6 +71,7 @@ public class Rule {
 		}
 	}
 	
+	//Process a string flagged as not allowed
 	private String[] processNotAllowed(String in){
 		String save = in;
 		in = removeUnapplicableStart(in);
@@ -94,6 +98,7 @@ public class Rule {
 		return null; //should not reach
 	}
 	
+	//remove parts of the string specified as unapplicable. so rule can operate on body.
 	private String removeUnapplicableStart(String in){
 		if (start==null){
 			return in;

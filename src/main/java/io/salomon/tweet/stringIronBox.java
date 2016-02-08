@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.omg.CORBA.portable.UnknownException;
 
+//Just an experiment honestly. A datastructure for those who dont want strings messed with. Its super straightforward and thus undocumented
 public final class StringIronBox {
 
 	private ArrayList<immutableItem> list;
