@@ -25,7 +25,7 @@ you know. i take that back. ?# is the thing. and if the url isnt mine (pretendpe
 
 ''' 		new Rule("links", "/", "?#", false, "split", new String[]{"l"}), '''
 
-''' 		new Rule("links", null, null, false, "split", new String[]{"X","Z"}), '''
+''' 		new Rule("links", null, null, false, "text", new String[]{"X","Z"}), '''
 
 ''' 		new Rule("links", null, "/", true, "text", new String[]{"pretendperson.io","pretendhomie."}), '''
 
