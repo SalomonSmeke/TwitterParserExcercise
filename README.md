@@ -5,7 +5,7 @@ A twitter parser with emphasis on user addable rules, testability, and string im
 This parses tweets. Picks out the tags, links, etc. And feeds them back categorized.
 Thats all fine, well, and not a big deal.
 
-What is a little different is how easy it is to add new rules to the parser. Dont want to takes links with the letter "l" on them? no problem.
+What is a little different is how easy it is to add new rules to the parser. Dont want to take links with the letter "l" in them? no problem.
 
 ''' 		new Rule("links", null, null, false, "text", new String[]{"l"}), '''
 
