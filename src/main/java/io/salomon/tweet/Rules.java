@@ -52,7 +52,6 @@ public class Rules {
 	 * @see			Tweet
 	 * @see			Types
 	 */
-	public Rule[] getRules(){
-		return userRulesSetup; 
-	}
+
+	public Rule[] getRules(){ return userRulesSetup;}
 }

@@ -17,9 +17,8 @@ public final class StringIronBox {
 	 * @see			Tweet
 	 * @see			Types
 	 */
-	public StringIronBox(){
-		list = new ArrayList<ImmutableItem>();
-	}
+
+	public StringIronBox(){ list = new ArrayList<ImmutableItem>(); }
 
 	/**
 	 * Adding a string to an iron box
@@ -31,13 +30,16 @@ public final class StringIronBox {
 	 * @see         StringIronBox
 	 * @see			ImmutableItem
 	 */
+
 	public boolean addString(String in){
-		try{
-			list.add(new ImmutableItem(in));
-		}catch(UnknownException e){
+
+		try{ list.add(new ImmutableItem(in));}
+
+		catch(UnknownException e){
 			System.out.println(e);
 			return false;
 		}
+
 		return true;
 	}
 
@@ -52,6 +54,7 @@ public final class StringIronBox {
 	 * @see         StringIronBox
 	 * @see			ImmutableItem
 	 */
+
 	public boolean removeString(String in){
 		System.out.println("NOPE. Aint gonna remove from an iron box homie");
 		return false;
@@ -67,12 +70,12 @@ public final class StringIronBox {
 	 * @see         StringIronBox
 	 * @see			ImmutableItem
 	 */
+
 	public boolean contains(String in){
-		if(list.contains(new ImmutableItem(in))){
-			return true;
-		} else {
-			return false;
-		}
+
+		if(list.contains(new ImmutableItem(in))){ return true;
+		} else { return false;}
+
 	}
 
 	/**
@@ -85,8 +88,10 @@ public final class StringIronBox {
 	 * @see         StringIronBox
 	 * @see			ImmutableItem
 	 */
+
 	public String getAt(int index){
 		if (index>list.size()-1) throw new IndexOutOfBoundsException("IronBox does not contain that many elements.");
+
 		return list.get(index).toString();
 	}
 
@@ -99,23 +104,24 @@ public final class StringIronBox {
 	 * @see         StringIronBox
 	 * @see			ImmutableItem
 	 */
-	public int size(){
-		return list.size();
-	}
+
+	public int size(){ return list.size(); }
 
 	private class ImmutableItem {
+
 		private final String item;
 
 		private ImmutableItem (String text){item = text;}
+
 		@Override
 		public String toString(){return item;}
 
 		@Override
 		public boolean equals(Object in){
+
 			if (in.toString() == this.item) return true;
 			else return false;
+
 		}
 	}
-
-
 }

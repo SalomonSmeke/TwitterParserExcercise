@@ -32,6 +32,7 @@ public class Rule {
 	 * @see			Tweet
 	 * @see			Types
 	 */
+
 	public Rule(String type, String start, String end, boolean required, String behavior, String []tokens){
 		this.type = type;
 		this.start=start;
@@ -54,16 +55,19 @@ public class Rule {
 	 * @see         Tweet
 	 * @see			Types
 	 */	
+
 	public String getApplicability(String in){
 		boolean flag = false;
+
 		in = removeUnapplicableStart(in);
 		in = removeUnapplicableEnd(in);
+
 		for (int i = 0; i < tokens.length; i++){
-			if (in.contains(tokens[i])){
-				flag = true;
-			}
+			if (in.contains(tokens[i])) flag = true;
 		}
+
 		if (flag) return type;
+
 		return "";
 	}
 
@@ -75,9 +79,8 @@ public class Rule {
 	 * @see			Rules
 	 * @see			Types
 	 */	
-	public String getType(){
-		return type;
-	}
+
+	public String getType(){ return type; }
 
 	/**
 	 * Processes a string that has been determined to be applicable.
@@ -94,10 +97,10 @@ public class Rule {
 	 * @see			Types
 	 * @see			Rules
 	 */	
+
 	public String[] process(String in){
-		if (required){
-			return processRequired(in);
-		}
+		if (required){ return processRequired(in); }
+
 		return processNotAllowed(in);
 	}
 
@@ -112,22 +115,24 @@ public class Rule {
 	 * @see         Tweet
 	 * @see			Types
 	 */	
+
 	private String[] processRequired(String in){
 		String save = in;
+
 		in = removeUnapplicableStart(in);
 		in = removeUnapplicableStart(in);
+
 		boolean flag = false;
+
 		for (int i = 0; i < tokens.length; i++){
 			if (in.contains(tokens[i])){
 				flag = true;
 				break;
 			}
 		}
-		if (flag){
-			return new String[]{save};
-		} else {
-			return new String[]{null,save};
-		}
+
+		if (flag){ return new String[]{save};
+		} else { return new String[]{null,save};}
 	}
 
 	/**
@@ -140,14 +145,19 @@ public class Rule {
 	 * @return      String[]
 	 * @see         Tweet
 	 * @see			Types
-	 */	
+	 */
+
 	private String[] processNotAllowed(String in){
 		String save = in;
+
 		in = removeUnapplicableStart(in);
 		in = removeUnapplicableStart(in);
+
 		int offset = save.indexOf(in);
 		int index = 0;
+
 		boolean flag = false;
+
 		for (int i = 0; i < tokens.length; i++){
 			if (in.contains(tokens[i])){
 				flag = true;
@@ -155,43 +165,36 @@ public class Rule {
 				break;
 			}
 		}
-		if (!flag){
-			return new String[]{save}; //should not reach
-		}
+		if (!flag) return new String[]{save}; //should not reach
+
 		if (behavior=="split"){
 			return new String[]{save.substring(0, index),save.substring(index)};
 		}
 		if (behavior=="text"){
 			return new String[]{null,save};
 		}
+
 		return null; //should not reach
 	}
 
 	//remove parts of the string specified as unapplicable. so rule can operate on body.
 	private String removeUnapplicableStart(String in){
-		if (start==null){
-			return in;
-		}
-		if (start==""){
-			return in.substring(1);
-		}
-		if (in.contains(start)){
-			return in.substring(in.indexOf(start));
-		} else {
-			return "";
-		}
+		if (start==null) return in;
+
+		if (start=="") return in.substring(1);
+
+		if (in.contains(start)){ return in.substring(in.indexOf(start));
+		} else { return "";}
+
 	}
+
 	private String removeUnapplicableEnd(String in){
-		if (end==null){
-			return in;
-		}
-		if (end==""){
-			return in.substring(0,in.length()-1);
-		}
-		if (in.contains(end)){
-			return in.substring(0,in.indexOf(end));
-		} else {
-			return in;
-		}
+		if (end==null) return in;
+
+		if (end=="") return in.substring(0,in.length()-1);
+
+		if (in.contains(end)){ return in.substring(0,in.indexOf(end));
+		} else { return in; }
 	}
+
 }
