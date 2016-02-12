@@ -4,9 +4,9 @@ import java.util.HashMap;
 
 //TODO Create tweet
 public class Tweet {
-	
+
 	DataHandler handler;
-	
+
 	//Instantiation of a Tweet object. Takes in a string. Will not parse nulls.
 	public Tweet(String init) {
 		handler = new DataHandler(init);
@@ -16,7 +16,7 @@ public class Tweet {
 			System.out.println("WARN, did not parse null value");
 		}
 	}
-	
+
 	//ReParsing in case of tweet replacement
 	private boolean parseIn(String in){
 		if (in == null){
@@ -34,9 +34,9 @@ public class Tweet {
 		HashMap<String,StringIronBox> containers = handler.gContainers();
 		HashMap<String,Integer> counters = handler.gCounters();
 		String [] types = handler.gTypes();
-		
+
 		String out = "Tweet composition is as follows:\n";
-		
+
 		//Iterate over each type
 		for (int i = 0; i < types.length; i++){
 			//Grab the box for each type
@@ -50,12 +50,12 @@ public class Tweet {
 		}
 		return out;
 	}
-	
+
 	//Alternative printing mechanism
 	public void print(){
 		System.out.println(this.toString());
 	}
-	
+
 	//Information on changing rules
 	public void meta(){
 		System.out.println("To add more rules that apply to a type of string (like a tag) go to \"rules\" file. \n To add new types. Go in the \"Types\" file. Results wil update accordingly.");
