@@ -182,7 +182,7 @@ public class TweetTest {
 			System.out.println("	INSTANTIATED OK");
 			
 			HashMap<String,StringIronBox> x = one.gContainers();
-			HashMap<String,Integer> y = one.gCounters();
+			one.gCounters();
 			one.reparse("@test");
 			System.out.println("	REPARSE OK");
 			
@@ -204,6 +204,11 @@ public class TweetTest {
 			System.out.println("	INSTANTIATED regular OK");
 			
 			System.out.println("TEST: \u2713");
+		}
+		
+		@Test public void testTweetMeta(){
+			Tweet a = new Tweet("");
+			assertEquals(a.meta(),"To add more rules that apply to a type of string (like a tag) go to \"rules\" file. \n To add new types. Go in the \"Types\" file. Results wil update accordingly.");
 		}
 
 	//TODO: add more tests

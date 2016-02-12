@@ -10,6 +10,6 @@ public class Playground {
 		Tweet testTweet = new Tweet("@mentio#nsample #tagsample http://linksample.com samplewords sample @phttp:// ");
 
 		System.out.println(testTweet);
-		testTweet.meta();
+		System.out.println(testTweet.meta());
 	}
 }

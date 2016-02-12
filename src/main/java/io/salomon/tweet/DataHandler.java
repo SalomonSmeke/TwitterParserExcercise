@@ -134,7 +134,7 @@ public class DataHandler extends Types{
 			Rule performanceTemp = rules[i];
 
 			//If the rule applies, process it.
-			if (performanceTemp.getType()==type && performanceTemp.getApplicability(in)==type){
+			if (performanceTemp.getType().equals(type) && performanceTemp.getApplicability(in).equals(type)){
 				rulesResult = performanceTemp.process(in);
 				break;
 			}

@@ -81,9 +81,9 @@ public class Tweet {
 	/**
 	 * Prints how rules work. just for niceness.
 	 */
-	public void meta(){
+	public String meta(){
 
-		System.out.println("To add more rules that apply to a type of string (like a tag) go to \"rules\" file. \n To add new types. Go in the \"Types\" file. Results wil update accordingly.");
+		return ("To add more rules that apply to a type of string (like a tag) go to \"rules\" file. \n To add new types. Go in the \"Types\" file. Results wil update accordingly.");
 
 	}
 }

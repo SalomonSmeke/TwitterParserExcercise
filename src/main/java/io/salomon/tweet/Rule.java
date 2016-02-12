@@ -167,10 +167,10 @@ public class Rule {
 		}
 		if (!flag) return new String[]{save}; //should not reach
 
-		if (behavior=="split"){
+		if (behavior.equals("split")){
 			return new String[]{save.substring(0, index),save.substring(index)};
 		}
-		if (behavior=="text"){
+		if (behavior.equals("text")){
 			return new String[]{null,save};
 		}
 
@@ -181,7 +181,7 @@ public class Rule {
 	private String removeUnapplicableStart(String in){
 		if (start==null) return in;
 
-		if (start=="") return in.substring(1);
+		if (start.equals("")) return in.substring(1);
 
 		if (in.contains(start)){ return in.substring(in.indexOf(start));
 		} else { return "";}
@@ -191,7 +191,7 @@ public class Rule {
 	private String removeUnapplicableEnd(String in){
 		if (end==null) return in;
 
-		if (end=="") return in.substring(0,in.length()-1);
+		if (end.equals("")) return in.substring(0,in.length()-1);
 
 		if (in.contains(end)){ return in.substring(0,in.indexOf(end));
 		} else { return in; }

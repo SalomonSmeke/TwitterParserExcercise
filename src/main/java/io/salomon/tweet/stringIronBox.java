@@ -71,12 +71,7 @@ public final class StringIronBox {
 	 * @see			ImmutableItem
 	 */
 
-	public boolean contains(String in){
-
-		if(list.contains(new ImmutableItem(in))){ return true;
-		} else { return false;}
-
-	}
+	public boolean contains(String in){ return list.contains(new ImmutableItem(in)); }
 
 	/**
 	 * Return element at an index in an iron box
@@ -119,7 +114,7 @@ public final class StringIronBox {
 		@Override
 		public boolean equals(Object in){
 
-			if (in.toString() == this.item) return true;
+			if (in.toString().equals(this.item)) return true;
 			else return false;
 
 		}
