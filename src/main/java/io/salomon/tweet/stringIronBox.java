@@ -12,7 +12,6 @@ public final class StringIronBox {
 	/**
 	 * Initializer. Creates a StringIronBox of immutable items
 	 * 
-	 * @return      void
 	 * @see         Tweet
 	 * @see			Rule
 	 * @see			Tweet
@@ -27,7 +26,7 @@ public final class StringIronBox {
 	 * <p>
 	 * returns true or false if success or fail
 	 * 
-	 * @param 		int
+	 * @param 		in	string to be added
 	 * @return      boolean
 	 * @see         StringIronBox
 	 * @see			ImmutableItem
@@ -48,7 +47,7 @@ public final class StringIronBox {
 	 * <p>
 	 * returns false
 	 * 
-	 * @param		in
+	 * @param		in	string to be NOT removed
 	 * @return      boolean
 	 * @see         StringIronBox
 	 * @see			ImmutableItem
@@ -63,7 +62,7 @@ public final class StringIronBox {
 	 * <p>
 	 * returns false or true based on result
 	 * 
-	 * @param		in
+	 * @param		in	string to be checked
 	 * @return      boolean
 	 * @see         StringIronBox
 	 * @see			ImmutableItem
@@ -81,7 +80,7 @@ public final class StringIronBox {
 	 * <p>
 	 * returns index or error if not contained.
 	 * 
-	 * @param		index
+	 * @param		index	index of element to be returned
 	 * @return      String
 	 * @see         StringIronBox
 	 * @see			ImmutableItem

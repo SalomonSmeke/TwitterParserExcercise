@@ -27,7 +27,6 @@ public class Rule {
 	 * @param  required  true for these tokens are required, false for they are not allowed
 	 * @param  behavior  split for using the first half as is, text for converting all item to text
 	 * @param  tokens  the triggers for the rule
-	 * @return      void
 	 * @see         Tweet
 	 * @see			Rules
 	 * @see			Tweet

@@ -17,7 +17,6 @@ public class DataHandler extends Types{
 	 * This method throws a console warning if it was passed an empty argument
 	 *
 	 * @param  parse  a string to be parsed
-	 * @return      void
 	 * @see         Tweet
 	 */
 	public DataHandler(String parse){
@@ -38,7 +37,6 @@ public class DataHandler extends Types{
 	 * This method throws a console warning if it was passed an empty argument
 	 *
 	 * @param  parse  a string to be reparsed
-	 * @return      void
 	 * @see         Tweet
 	 */
 	public void reparse(String parse){
@@ -56,9 +54,7 @@ public class DataHandler extends Types{
 	/**
 	 * Utilizes the Types file to create structures for a Tweet based
 	 * on user specification.
-	 * <p>
 	 *
-	 * @return      void
 	 * @see         Tweet
 	 * @see			StringIronBox
 	 * @see			Types
@@ -80,7 +76,6 @@ public class DataHandler extends Types{
 	 * This method throws a console warning if it was passed an empty argument
 	 *
 	 * @param  parse  a string to be categorized and split
-	 * @return      void
 	 * @see         Tweet
 	 */
 	private void parser(String parse){
@@ -98,7 +93,6 @@ public class DataHandler extends Types{
 	 * <p>
 	 *
 	 * @param  in 	A string to be categorized
-	 * @return      void
 	 * @see         Tweet
 	 * @see			parser
 	 * @see			createStructs
@@ -147,10 +141,9 @@ public class DataHandler extends Types{
 	 * Returns containers of Tweet portions as specified by Types and
 	 * parsed by parse
 	 * <p>
-	 * @return      HashMap<String,StringIronBox>
+	 * @return      HashMap String,StringIronBox
 	 * @see         Tweet
 	 * @see			StringIronBox
-	 * @see 		parse
 	 * @see			Types
 	 */
 	public HashMap<String,StringIronBox> gContainers(){
@@ -161,10 +154,9 @@ public class DataHandler extends Types{
 	 * Returns counters of Tweet portions as specified by Types and
 	 * parsed by parse
 	 * <p>
-	 * @return      HashMap<String,StringInteger>
+	 * @return      HashMap String,StringInteger
 	 * @see         Tweet
 	 * @see			StringIronBox
-	 * @see 		parse
 	 * @see			Types
 	 */
 	public HashMap<String,Integer> gCounters(){
@@ -177,7 +169,6 @@ public class DataHandler extends Types{
 	 * @return      String[]
 	 * @see         Tweet
 	 * @see			StringIronBox
-	 * @see 		parse
 	 * @see			Types
 	 */
 	public String[] gTypes(){
