@@ -1,8 +1,9 @@
 import io.salomon.tweet.Tweet;
-/*
- * This file intended to demonstrate/play-with the functionality of the Tweet object.
- * This file is NOT a testing structure
+/**
+ * Is used as a playground to test the functionality of Tweet.
+ * Operates as a "main"
  */
+
 public class Playground {
     public static void main(String []args){
     	Tweet testTweet = new Tweet("@mentio#nsample #tagsample http://linksample.com samplewords sample @phttp:// ");
