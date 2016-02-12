@@ -2,12 +2,16 @@ package io.salomon.tweet;
 
 import java.util.HashMap;
 
-//TODO Create tweet
 public class Tweet {
 
 	DataHandler handler;
 
-	//Instantiation of a Tweet object. Takes in a string. Will not parse nulls.
+	/**
+	 * Initializer. Creates a Tweet and passes the tweet in to be parsed
+	 * There is some null handling
+	 * 
+	 * @param init	String to be parsed in
+	 */
 	public Tweet(String init) {
 		handler = new DataHandler(init);
 		if (init != null){
@@ -17,7 +21,13 @@ public class Tweet {
 		}
 	}
 
-	//ReParsing in case of tweet replacement
+	/**
+	 * Parses a string. Checks for nulls and returns a boolean accordingly
+	 * 
+	 * 
+	 * @param in	String to be parsed
+	 * @return boolean 
+	 */
 	private boolean parseIn(String in){
 		if (in == null){
 			System.out.println("Cannot parse null tweets");
@@ -27,7 +37,11 @@ public class Tweet {
 		return true;
 	}
 
-	//Obtain the archived data from string iron boxes.
+	/**
+	 * Converts a Tweet into a string, overriden from object
+	 * 
+	 * @return String 
+	 */
 	@Override
 	public String toString(){
 		//Get data structures from handler
@@ -56,7 +70,9 @@ public class Tweet {
 		System.out.println(this.toString());
 	}
 
-	//Information on changing rules
+	/**
+	 * Prints how rules work. just for niceness.
+	 */
 	public void meta(){
 		System.out.println("To add more rules that apply to a type of string (like a tag) go to \"rules\" file. \n To add new types. Go in the \"Types\" file. Results wil update accordingly.");
 	}
